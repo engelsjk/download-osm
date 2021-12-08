@@ -1,4 +1,5 @@
 notes.txt
+urls.tsv
 cmd/
 *.osm.pbf
 *.osm.pbf.aria2
