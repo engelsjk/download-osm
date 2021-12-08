@@ -21,13 +21,6 @@ type Source struct {
 	Verbose    bool
 }
 
-// type Source interface {
-// 	String() string
-// 	LoadHash(Session) error
-// 	LoadMetadata(Session) error
-// 	Size() string
-// }
-
 type SourceOption func(*Source)
 
 func WithSourceName(name string) SourceOption {
@@ -135,11 +128,11 @@ func (s *Source) Size() string {
 	if s.FileLength == 0 {
 		return "Unknown"
 	}
-	return fmt.Sprintf("%.2f MB (%s)", float64(s.FileLength)/1024.0/1024.0, humanize.Comma(s.FileLength))
+	return fmt.Sprintf("%d MB (%s)", s.FileLength/1024/1024, humanize.Comma(s.FileLength))
 }
 
 func printSources(sources []*Source) {
 	for _, s := range sources {
-		log.Printf("%s %s %s\n", s.Name, s.URL, s.Hash)
+		log.Printf("%s %s %s %s %d\n", s.Name, s.URL, s.Hash, s.Timestamp, s.FileLength)
 	}
 }

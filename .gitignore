@@ -1,2 +1,4 @@
 notes.txt
 cmd/
+*.osm.pbf
+*.osm.pbf.aria2

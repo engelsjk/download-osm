@@ -77,7 +77,7 @@ func (m *Mirror) Init(client *Client) error {
 	m.LoadSources(client)
 
 	if len(m.Sources) > 1 && m.Sources[0].Hash == m.Sources[1].Hash {
-		fmt.Println("latest is the same as the last one")
+		log.Println("latest is the same as the last one")
 		m.Sources = m.Sources[1:]
 	}
 
@@ -155,7 +155,7 @@ func (m *Mirror) ExtractSources() ([]*Source, error) {
 		dt := time.Time{}
 
 		if date != "latest" {
-			if t, err := time.Parse("20210101", date); err != nil {
+			if t, err := time.Parse("060102", date); err == nil {
 				dt = t
 			}
 		}
