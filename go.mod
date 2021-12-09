@@ -1,4 +1,4 @@
-module github.com/engelsjk/download-osm
+module github.com/engelsjk/go-download-osm
 
 go 1.17
 
